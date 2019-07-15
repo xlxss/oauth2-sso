@@ -1,0 +1,22 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /wx
+    session:
+      cookie:
+        name: UISESSION
+security:
+  oauth2:
+    client:
+      client-id: weixin
+      client-secret: 111
+      access-token-uri: http://auth-server:8000/auth/oauth/token
+      user-authorization-uri: http://auth-server:8000/auth/oauth/authorize
+      pre-established-redirect-uri: http://client-wx:8010/wx/callback
+      client-authentication-scheme: header
+      authentication-scheme: query
+      grant-type: authorization_code
+    resource:
+      token-info-uri: http://auth-server:8000/auth/oauth/check_token
+    sso:
+      login-path: /callback
