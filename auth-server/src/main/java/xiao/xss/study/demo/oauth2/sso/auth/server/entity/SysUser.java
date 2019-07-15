@@ -38,7 +38,7 @@ public class SysUser implements Serializable {
     private String mobile;
     private boolean active;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sys_user_authority", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"),
             foreignKey = @ForeignKey(name = "fk_user_authority_1"), inverseForeignKey = @ForeignKey(name = "fk_user_authority_2"))
     private Set<SysAuthority> authorities;

@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import xiao.xss.study.demo.oauth2.sso.auth.server.security.LoginRequestDetailsSource;
 import xiao.xss.study.demo.oauth2.sso.auth.server.security.provider.UsernamePasswordProvider;
 
@@ -38,13 +39,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .and()
                 .anonymous().authorities("ROLE_DUMMY")
                 .and()
                 .requestMatchers()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/dummy/**").hasRole("DUMMY")
+                .antMatchers("/login", "/dummy/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
