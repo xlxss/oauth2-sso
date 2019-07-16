@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
+import xiao.xss.study.demo.oauth2.sso.auth.server.security.LocalTokenStore;
 import xiao.xss.study.demo.oauth2.sso.auth.server.security.LocalUserDetailsService;
 
 import javax.sql.DataSource;
@@ -26,7 +26,7 @@ public class Oauth2ServerConfig {
     @Autowired private DataSource dataSource;
     @Autowired private LocalUserDetailsService localUserDetailsService;
     @Autowired private AuthorizationCodeServices authorizationCodeServices;
-    @Autowired private TokenStore tokenStore;
+    @Autowired private LocalTokenStore tokenStore;
     @Autowired private DefaultTokenServices defaultTokenServices;
     @Autowired private AuthenticationManager authenticationManager;
 

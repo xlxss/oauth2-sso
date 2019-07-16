@@ -7,8 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import xiao.xss.study.demo.oauth2.sso.auth.server.security.LocalTokenStore;
 
 import javax.sql.DataSource;
 
@@ -30,12 +29,12 @@ public class Beans {
     }
 
     @Bean
-    public TokenStore tokenStore(DataSource dataSource) {
-        return new JdbcTokenStore(dataSource);
+    public LocalTokenStore tokenStore(DataSource dataSource) {
+        return new LocalTokenStore(dataSource);
     }
 
     @Bean
-    public DefaultTokenServices defaultTokenServices(TokenStore tokenStore) {
+    public DefaultTokenServices defaultTokenServices(LocalTokenStore tokenStore) {
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(tokenStore);
         tokenServices.setSupportRefreshToken(true);
