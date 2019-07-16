@@ -2,9 +2,9 @@ server:
   port: 8020
   servlet:
     context-path: /qq
-    session:
-      cookie:
-        name: UISESSION
+#    session:
+#      cookie:
+#        name: UISESSION
 security:
   oauth2:
     client:
@@ -14,7 +14,7 @@ security:
       user-authorization-uri: http://auth-server:8000/auth/oauth/authorize
       pre-established-redirect-uri: http://client-wx:8010/qq/callback
       client-authentication-scheme: header
-      authentication-scheme: query
+      authentication-scheme: header
       grant-type: authorization_code
     resource:
       token-info-uri: http://auth-server:8000/auth/oauth/check_token
