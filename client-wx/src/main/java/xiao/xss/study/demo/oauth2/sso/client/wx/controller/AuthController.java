@@ -1,9 +1,12 @@
 package xiao.xss.study.demo.oauth2.sso.client.wx.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import xiao.xss.study.demo.oauth2.sso.client.wx.annotation.RequestString;
+import xiao.xss.study.demo.oauth2.sso.client.wx.config.AppUtil;
+
+import java.util.Map;
 
 /**
  * 认证
@@ -14,9 +17,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class AuthController {
+    @Autowired private AppUtil appUtil;
 
-    @GetMapping("/callback")
+    @GetMapping("/auth/code")
     public void code(@RequestParam(required = false) String code) {
         log.debug("Authorization_code: {}", code);
+    }
+
+    @PostMapping("/auth/token")
+    public Map<String, Object> token(@RequestString String code) {
+        return appUtil.getToken(code);
+    }
+
+    @PostMapping("/auth/refreshToken")
+    public Map<String, Object> refreshToken(@RequestBody String refreshToken) {
+        return  appUtil.refreshToken(refreshToken);
     }
 }
