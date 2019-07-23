@@ -51,12 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         throw new RuntimeException("内部错误");
                     }
                 })
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("http://auth-server:8000/auth/oauth/exit")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/callback").permitAll()
-                .antMatchers("/index.html").permitAll()
                 .anyRequest().authenticated();
     }
 }
