@@ -22,7 +22,7 @@ export const login = () => {
 
 // 登出
 export const logout = () => {
-    return axios.post(`${WX.REST.BASE_URI}/logout`, {code})
+    return axios.post(`${WX.REST.BASE_URI}/logout`)
         .then(res => {
             sessionStorage.removeItem('access_token');
             sessionStorage.removeItem('token_type');
