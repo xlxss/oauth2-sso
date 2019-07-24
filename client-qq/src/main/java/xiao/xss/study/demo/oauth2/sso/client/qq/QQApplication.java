@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq;
+package xiao.xss.study.demo.oauth2.sso.client.qq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

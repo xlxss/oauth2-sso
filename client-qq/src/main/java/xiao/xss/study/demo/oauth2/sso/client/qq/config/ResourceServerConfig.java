@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.config;
+package xiao.xss.study.demo.oauth2.sso.client.qq.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

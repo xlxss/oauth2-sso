@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.controller;
+package xiao.xss.study.demo.oauth2.sso.client.qq.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

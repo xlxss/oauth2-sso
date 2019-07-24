@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.annotation;
+package xiao.xss.study.demo.oauth2.sso.client.qq.annotation;
 
 import java.lang.annotation.*;
 

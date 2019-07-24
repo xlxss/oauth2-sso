@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.config;
+package xiao.xss.study.demo.oauth2.sso.client.qq.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import xiao.xss.study.demo.oauth.sso.client.qq.resolver.RequestStringHandlerMethodArgumentResolver;
+import xiao.xss.study.demo.oauth2.sso.client.qq.resolver.RequestStringHandlerMethodArgumentResolver;
 
 import java.util.List;
 

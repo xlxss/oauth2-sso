@@ -1,10 +1,10 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.controller;
+package xiao.xss.study.demo.oauth2.sso.client.qq.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import xiao.xss.study.demo.oauth.sso.client.qq.annotation.RequestString;
-import xiao.xss.study.demo.oauth.sso.client.qq.config.AppUtil;
+import xiao.xss.study.demo.oauth2.sso.client.qq.annotation.RequestString;
+import xiao.xss.study.demo.oauth2.sso.client.qq.config.AppUtil;
 
 import java.util.Map;
 

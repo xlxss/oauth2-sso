@@ -1,4 +1,4 @@
-package xiao.xss.study.demo.oauth.sso.client.qq.resolver;
+package xiao.xss.study.demo.oauth2.sso.client.qq.resolver;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import xiao.xss.study.demo.oauth.sso.client.qq.annotation.RequestString;
+import xiao.xss.study.demo.oauth2.sso.client.qq.annotation.RequestString;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
