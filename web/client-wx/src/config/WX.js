@@ -3,7 +3,7 @@ const WX = {
         BASE_URI: 'http://auth-server:8000/auth',
         AUTHORIZE: '/oauth/authorize',
         TOKEN: '/oauth/token',
-        REDIRECT: 'http://localhost:8080/auth/code',
+        REDIRECT: 'http://localhost:8081/auth/code',
         CLIENT_ID: 'weixin',
         CLIENT_SECRET: '111',
         SCOPE: '',

@@ -24,12 +24,12 @@ export const login = () => {
 export const logout = () => {
     return axios.post(`${WX.REST.BASE_URI}/logout`, {code})
         .then(res => {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('token_type');
-            localStorage.removeItem('refresh_token');
-            localStorage.removeItem('expires_in');
-            localStorage.removeItem('scope');
-            localStorage.removeItem('token_time');
+            sessionStorage.removeItem('access_token');
+            sessionStorage.removeItem('token_type');
+            sessionStorage.removeItem('refresh_token');
+            sessionStorage.removeItem('expires_in');
+            sessionStorage.removeItem('scope');
+            sessionStorage.removeItem('token_time');
             return res;
         })
         .catch(err => console.log(err));
@@ -42,12 +42,12 @@ export const getToken = (code, fn) => {
         .then(res => {
             const data = res.data;
             console.log('Http.getToken data:', data);
-            localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem("token_type", data.token_type);
-            localStorage.setItem("refresh_token", data.refresh_token);
-            localStorage.setItem("expires_in", data.expires_in);
-            localStorage.setItem("scope", data.scope);
-            localStorage.setItem("token_time", Date.now());
+            sessionStorage.setItem("access_token", data.access_token);
+            sessionStorage.setItem("token_type", data.token_type);
+            sessionStorage.setItem("refresh_token", data.refresh_token);
+            sessionStorage.setItem("expires_in", data.expires_in);
+            sessionStorage.setItem("scope", data.scope);
+            sessionStorage.setItem("token_time", Date.now());
             console.log('Http.getToken success:', code);
             if(typeof fn === 'function') {
                 fn(data);
@@ -61,9 +61,9 @@ export const getToken = (code, fn) => {
 
 // 检查访问令牌是否过期，如果过期则更新令牌
 const checkToken = () => {
-    if(localStorage.getItem('access_token')) {
+    if(sessionStorage.getItem('access_token')) {
         try {
-            const is_expires = Date.now() - parseInt(localStorage.getItem('expires_in')) * 1000 - parseInt(localStorage.getItem('token_time')) > 0;
+            const is_expires = Date.now() - parseInt(sessionStorage.getItem('expires_in')) * 1000 - parseInt(sessionStorage.getItem('token_time')) > 0;
             if (is_expires) {
                 refreshToken();
             }
@@ -79,16 +79,16 @@ const checkToken = () => {
 // 更新访问令牌
 const refreshToken = () => {
     console.log('Http.refreshToken.in');
-    axios.post(`${WX.REST.BASE_URI}/auth/refreshToken`, localStorage.getItem("refresh_token"), {headers: {Authorization: token()}})
+    axios.post(`${WX.REST.BASE_URI}/auth/refreshToken`, sessionStorage.getItem("refresh_token"), {headers: {Authorization: token()}})
         .then(res => {
             const data = res.data;
-            localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem("expires_in", data.expires_in);
+            sessionStorage.setItem("access_token", data.access_token);
+            sessionStorage.setItem("expires_in", data.expires_in);
             return data;
         })
         .catch(err => console.log(err))
 };
 
 const token = () => {
-    return `${localStorage.getItem('token_type')} ${localStorage.getItem('access_token')}`;
+    return `${sessionStorage.getItem('token_type')} ${sessionStorage.getItem('access_token')}`;
 };

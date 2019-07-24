@@ -12,7 +12,7 @@ security:
       client-secret: 111
       access-token-uri: http://auth-server:8000/auth/oauth/token
       user-authorization-uri: http://auth-server:8000/auth/oauth/authorize
-      pre-established-redirect-uri: http://localhost:8080/auth/code
+      pre-established-redirect-uri: http://localhost:8081/auth/code
       client-authentication-scheme: header
       authentication-scheme: header
       grant-type: authorization_code
