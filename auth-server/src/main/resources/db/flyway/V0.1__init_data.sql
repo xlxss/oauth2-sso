@@ -8,5 +8,7 @@ INSERT INTO `sys_authority` (`id`, `code`, `description`) VALUES ('5', 'AUTH_5',
 INSERT INTO `sys_user_authority` (`user_id`, `authority_id`) VALUES ('1', '4');
 INSERT INTO `sys_user_authority` (`user_id`, `authority_id`) VALUES ('1', '5');
 
-INSERT INTO `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) VALUES ('weixin', '', '$2a$10$D2lvrKeG1.N2SbJxN6DANuBboguoJLFhFrljETO/O5ESLEM5/XACi', 'read, write', 'authorization_code,client_credentials,refresh_token,password,implicit', 'http://localhost:8080/auth/code', 'ROLE_CLIENT_1', '600', '3600', '{}', 'true');
+-- password=111
+INSERT INTO `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) VALUES ('weixin', '', '$2a$10$D2lvrKeG1.N2SbJxN6DANuBboguoJLFhFrljETO/O5ESLEM5/XACi', 'read, write', 'authorization_code,client_credentials,refresh_token,password,implicit', 'http://localhost:8081/auth/code', 'ROLE_CLIENT_1', '600', '3600', '{}', 'true');
+INSERT INTO `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) VALUES ('qq', '', '$2a$10$D2lvrKeG1.N2SbJxN6DANuBboguoJLFhFrljETO/O5ESLEM5/XACi', 'read, write', 'authorization_code,client_credentials,refresh_token,password,implicit', 'http://localhost:8082/auth/code', 'ROLE_CLIENT_1', '600', '3600', '{}', 'true');
 
